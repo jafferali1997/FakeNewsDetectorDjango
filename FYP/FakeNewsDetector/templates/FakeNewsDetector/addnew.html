@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% if user.is_authenticated %}
+    <h1 style="margin:30px 120px;"><b>Enter your dataset</b></h1>
+    <form action="{% url 'addnew' %}" method="POST" >
+        {% csrf_token %}
+        
+        <label for="text"></label>
+        <textarea id="w3review" name="text" rows="12" cols="80" style="color:Black;"></textarea>
+        <br>
+        <label for="label">Fake or Real</label>
+        <textarea id="w3review" name="label" rows="1" cols="1" style="color:Black;"></textarea>
+        <br>
+        <input type="submit" value="Add" style="color:white; background-color: Gray; font-weight: bold; padding: 5px 32px; font-size: 16px;">
+    </form>
+    {{add}}
+{% else %}
+    <h1>Please Login</h1>
+{% endif %}
+
+{% endblock %}

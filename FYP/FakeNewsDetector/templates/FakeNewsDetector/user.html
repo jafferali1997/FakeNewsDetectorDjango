@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body_block %}
+    <h1>Here are your users</h1>
+
+    {% if user %}
+    <ol>
+        {% for a in user %}
+        <li>UsersInfo</li>
+        <ul>
+            <li>FirstName: {{a.FirstName}}</li>
+            <li>LastName: {{a.LastName}}</li>
+        </ul>
+        {% endfor %}
+    </ol>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% if user.is_authenticated %}
+    <h1>Thankyou for registering</h1>
+{% else %}
+    {% if registered %}
+        <h1>Thankyou for registering</h1>
+    {% else %}
+        <h1>Please Signup here:</h1>
+        <form method="POST" enctype="multipart/form-data" style="color: Gray;">
+            {% csrf_token %}
+            {{forminfo.as_p}}
+            {{form.as_p}}
+            <input type="submit", class="btn btn-primary", value="Submit">
+
+        </form>
+    {% endif %}
+{% endif %}
+{% endblock %}

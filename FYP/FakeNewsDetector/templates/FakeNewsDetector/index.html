@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% if user.is_authenticated %}
+    <h1 style="margin:40px 120px;"><b>Fake News Detector</b></h1>
+    <form action="{% url 'check' %}" method="POST" >
+        {% csrf_token %}
+        <label for="texturl">URL :</label>
+        <textarea id="w3review" name="texturl" rows="1" cols="80" style="color:Black;"></textarea>
+        <br>
+        <br>
+        
+        <label for="text">TEXT :</label>
+        <textarea id="w3review" name="text" rows="12" cols="80" style="color:Black;"></textarea>
+        <br>
+        
+        <input type="submit" value="Check" style="color:white; background-color: Gray; font-weight: bold; padding: 5px 32px; font-size: 16px; margin:0 240px;">
+    </form>
+{% else %}
+    <h1>Please Login to Detect Fake News</h1>
+{% endif %}
+
+{% endblock %}

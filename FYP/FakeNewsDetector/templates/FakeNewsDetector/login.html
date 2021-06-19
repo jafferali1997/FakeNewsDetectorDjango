@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body_block %}
+
+
+    <h1 style="font-size:400%;">Please login here:</h1>
+    <br>
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Enter Username" style="color:Black;">
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Enter Password" style="color:Black;">
+        <br>
+        <br>
+
+        <input type="submit" value="Login" style="background-color: Gray; font-weight: bold; padding: 5px 32px; font-size: 16px; margin:60px 200px;">
+    </form>
+
+
+{% endblock %}
